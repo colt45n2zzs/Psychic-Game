@@ -10,9 +10,6 @@ guessesRemainGame.textContent = guessesRemain;
 winsGame.textContent = wins;
 lossesGame.textContent = losses;
 
-
-
-
 /* Onload Computer Function */
 document.onload = function() {
     var compGuess = choices[Math.floor(Math.random() * choices.length)];
