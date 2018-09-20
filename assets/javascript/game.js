@@ -10,46 +10,50 @@ guessesRemainGame.textContent = guessesRemain;
 winsGame.textContent = wins;
 lossesGame.textContent = losses;
 
+
 /* Onload Computer Function */
 document.onload = function() {
-    var compGuess = choices[Math.floor(Math.random() * choices.length)];
-    computerGuesses.push(compGuess);
-    console.log(computerGuesses[0]);
+var compGuess = choices[Math.floor(Math.random() * choices.length)];
+computerGuesses.push(compGuess);
+console.log(computerGuesses[0]);
 }
 
-/* User Keyboard Input and If Else Logic */
+/* User Keyboard Input */
 document.onkeyup = function(event) {
-    var playerGuess = event.key;
-    guessesGame.textContent = playerGuess;
-    guesses.push(playerGuess);
+var playerGuess = event.key;
+guessesGame.textContent = playerGuess;
+guesses.push(playerGuess);
 
-    if (playerGuess == computerGuesses[0] && guessesRemain > 0) {
-        wins++;
-        winsGame.textContent = wins;
-        guessesRemain = 9;
-        guessesRemainGame.textContent = guessesRemain;
-        guesses.length = 0;
-        guessesGame.textContent = "";
-        computerGuesses.length = 0;
-        var compGuess = choices[Math.floor(Math.random() * choices.length)];
-        computerGuesses.push(compGuess);
-        console.log(computerGuesses[0]);   
+/* Win Senario */
+if (playerGuess == computerGuesses[0] && guessesRemain > 0) {
+    wins++;
+    winsGame.textContent = wins;
+    guessesRemain = 9;
+    guessesRemainGame.textContent = guessesRemain;
+    guesses.length = 0;
+    guessesGame.textContent = "";
+    computerGuesses.length = 0;
+    var compGuess = choices[Math.floor(Math.random() * choices.length)];
+    computerGuesses.push(compGuess);
+    console.log(computerGuesses[0]);   
     }
 
-    else if (playerGuess != computerGuesses[0] && guessesRemain > 0) {
-        guessesRemain = guessesRemain - 1;
-        guessesRemainGame.textContent = guessesRemain;
-        guessesGame.textContent = guesses.join("  ");   
-        for (var i = choices.length - 1; i >= 0; i--) {
-            choices[i].seconds--;
-            if (choices[i].seconds < 0 && choices[i].seconds == guesses[0]) { 
+/* Lose Guess */
+else if (playerGuess != computerGuesses[0] && guessesRemain > 0) {
+         guessesRemain = guessesRemain - 1;
+         guessesRemainGame.textContent = guessesRemain;
+         guessesGame.textContent = guesses.join("  ");   
+         for (var i = choices.length - 1; i >= 0; i--) {
+             choices[i].seconds--;
+             if (choices[i].seconds < 0 && choices[i].seconds == guesses[0]) { 
                 choices.splice(i, 1);
-            }
-        }
-    }
+             }
+         }
+}
 
-    else {
-        losses++;
+/* Lose Senario */
+
+else {  losses++;
         lossesGame.textContent = losses;
         guessesRemain = 9;
         guessesRemainGame.textContent = guessesRemain;
@@ -59,5 +63,5 @@ document.onkeyup = function(event) {
         var compGuess = choices[Math.floor(Math.random() * choices.length)];
         computerGuesses.push(compGuess);
         console.log(computerGuesses[0]);
-        }
+    }
 };

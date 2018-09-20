@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Psychic Game</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css" /> 
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet">
     </head>
-    <body>
-        <h1>The Psychic Game</h1>
-        <br>
-        <h2>Guess what letter I'm thinking of</h2>
-        <br>
-        <h3>Wins:<span id="winsGame"></span></h3>
-        <br>
-        <h3>Losses:<span id="lossesGame"></span></h3>
-        <br>
-        <h3>Remaining Guesses: <span id="guessesRemainGame"></span></h3>
-        <br>
-        <h3>Your Guesses So Far: <span id="guessesGame"></span></h3>
-        
+    <body class="body">
+        <div class= "mainbox">
+            <h1>The Psychic Game</h1>
+            <br>
+            <h2>Guess what letter I'm thinking of.....</h2>
+            <br>
+            <h3>Wins: <span id="winsGame"></span></h3>
+            <br>
+            <h3>Losses: <span id="lossesGame"></span></h3>
+            <br>
+            <h3>Remaining Guesses: <span id="guessesRemainGame"></span></h3>
+            <br>
+            <h3>Your Guesses So Far: </h3>
+            <br>
+            <span id="guessesGame"></span>
+            <br>
+        </div>
         <script src="assets/javascript/game.js"></script>
     </body>
 </html>
